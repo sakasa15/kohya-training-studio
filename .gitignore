@@ -1,0 +1,58 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+*.egg-info/
+dist/
+build/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb_checkpoints/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+logs/
+*.out
+
+# Docker
+*.tar
+*.tar.gz
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
+
+# Model files (optional - 大きすぎる場合)
+# *.safetensors
+# *.ckpt
+# *.pth
+
+# Secrets
+.env
+*.key
+*.pem
+```

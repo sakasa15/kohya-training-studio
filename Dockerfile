@@ -1,42 +1,50 @@
 ﻿FROM runpod/pytorch:2.2.0-py3.10-cuda12.1.1-devel-ubuntu22.04
-
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 ENV DEBIAN_FRONTEND=noninteractive \
     PYTHONUNBUFFERED=1 \
     PIP_NO_CACHE_DIR=on \
-    SHELL=/bin/bash
+    TEMPLATE_VERSION=v21
 
 WORKDIR /
 
-# 必要なパッケージ
-RUN apt-get update && apt-get install -y \
-    python3-tk \
-    python3-venv \
-    git \
-    wget \
-    curl \
-    rsync \
-    jq \
-    && rm -rf /var/lib/apt/lists/*
+# 必要なパッケージをインストール
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+        python3-tk \
+        python3-venv \
+        git \
+        wget \
+        curl \
+        rsync \
+        jq && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
-# JupyterLab（システムにインストール）
+# Pythonパッケージをインストール
 RUN pip3 install --no-cache-dir \
     jupyterlab \
     notebook \
-    ipywidgets
+    ipywidgets \
+    huggingface-hub \
+    requests \
+    tqdm
 
-# Kohya_ssをクローン（/opt に配置）
+# kohya_ss をクローン（サブモジュール含む）
 RUN git clone https://github.com/bmaltais/kohya_ss.git /opt/kohya_ss && \
-    test -d /opt/kohya_ss
+    cd /opt/kohya_ss && \
+    git submodule update --init --recursive
 
-# ログディレクトリ
+# スクリプトを配置
+COPY scripts/model_downloader.py /opt/scripts/model_downloader.py
+RUN chmod +x /opt/scripts/model_downloader.py
+
+# ログ用ディレクトリ作成
 RUN mkdir -p /workspace/logs
 
-# 起動スクリプト
+# スタートスクリプトを配置
 COPY start.sh /start.sh
 RUN chmod +x /start.sh
 
 EXPOSE 3013 8888
-
 ENTRYPOINT ["/start.sh"]

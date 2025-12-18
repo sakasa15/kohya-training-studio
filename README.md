@@ -56,7 +56,7 @@ sakasa15/kohya-runpod:v30
 ```
 
 **Recommended Specifications:**
-- **GPU:** RTX 4090 or RTX A6000 (24GB VRAM minimum)
+- **GPU:** 12GB+ VRAM 
 - **Container Disk:** 50GB
 - **Network Volume:** 80GB+ mounted to `/workspace`
 
@@ -383,7 +383,7 @@ sakasa15/kohya-runpod:v30
 ```
 
 **推奨スペック:**
-- **GPU:** RTX 4090 または RTX A6000（最小24GB VRAM）
+- **GPU:** 12GB以上、 VRAM 
 - **Container Disk:** 50GB
 - **Network Volume:** 80GB以上、`/workspace`にマウント
 

@@ -56,9 +56,9 @@ sakasa15/kohya-runpod:v30
 ```
 
 **Recommended Specifications:**
-- **GPU:** 12GB+ VRAM 
+- **GPU:** 12GB+ VRAM (24GB+ recommended for Flux)
 - **Container Disk:** 50GB
-- **Network Volume:** 80GB+ mounted to `/workspace`
+- **Network Volume:** 80GB+ mounted to `/workspace` (200GB+ recommended for Flux/SD3.5)
 
 **Ports:**
 - `3013` - Kohya_ss GUI
@@ -75,13 +75,18 @@ Once the pod starts, you'll see two URLs:
 
 1. Open **JupyterLab** (port 8888)
 2. Open `Download_Models.ipynb`
-3. Run cells to download models:
-   - SD 1.5 (4.27 GB)
-   - SDXL Base (6.94 GB)
-   - Waifu Diffusion 1.5 (2.0 GB)
+3. Set your Hugging Face Token (required for Flux/SD3.5)
+4. Run cells to download models:
+   - SD 1.5 (4.27 GB, 6GB+ VRAM)
+   - SDXL Base (6.94 GB, 12GB+ VRAM)
+   - Waifu Diffusion 1.5 (2.0 GB, 6GB+ VRAM)
+   - **FLUX.1 Dev** (23.8 GB, 24GB+ VRAM) 🔑
+   - **SD 3.5 Large** (16.0 GB, 16GB+ VRAM) 🔑
+   - **SD 3.5 Medium** (8.9 GB, 10GB+ VRAM) 🔑
    - Custom models via URL
 
-**Note:** Download history is preserved across pod restarts!
+**Note:** Download history is preserved across pod restarts!  
+🔑 = Requires Hugging Face Token
 
 ### 4. Prepare Your Dataset
 
@@ -401,9 +406,9 @@ sakasa15/kohya-runpod:v30
 ```
 
 **推奨スペック:**
-- **GPU:** 12GB以上、 VRAM 
+- **GPU:** 12GB以上 VRAM（Fluxには24GB以上推奨）
 - **Container Disk:** 50GB
-- **Network Volume:** 80GB以上、`/workspace`にマウント
+- **Network Volume:** 80GB以上、`/workspace`にマウント（Flux/SD3.5には200GB以上推奨）
 
 **ポート:**
 - `3013` - Kohya_ss GUI
@@ -420,13 +425,18 @@ Podが起動すると、2つのURLが表示されます:
 
 1. **JupyterLab**（ポート8888）を開く
 2. `Download_Models.ipynb`を開く
-3. セルを実行してモデルをダウンロード:
-   - SD 1.5（4.27 GB）
-   - SDXL Base（6.94 GB）
-   - Waifu Diffusion 1.5（2.0 GB）
+3. Hugging FaceのTokenを設定（Flux/SD3.5を使う場合）
+4. セルを実行してモデルをダウンロード:
+   - SD 1.5（4.27 GB、VRAM 6GB以上）
+   - SDXL Base（6.94 GB、VRAM 12GB以上）
+   - Waifu Diffusion 1.5（2.0 GB、VRAM 6GB以上）
+   - **FLUX.1 Dev**（23.8 GB、VRAM 24GB以上）🔑
+   - **SD 3.5 Large**（16.0 GB、VRAM 16GB以上）🔑
+   - **SD 3.5 Medium**（8.9 GB、VRAM 10GB以上）🔑
    - カスタムモデル（URL経由）
 
-**注意:** ダウンロード履歴はPod再起動後も保持されます！
+**注意:** ダウンロード履歴はPod再起動後も保持されます！  
+🔑 = Hugging Face Tokenが必要
 
 ### 4. データセットを準備
 

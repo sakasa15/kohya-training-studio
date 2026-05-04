@@ -1,16 +1,24 @@
 {
   "title": "Kohya_ss Training Studio",
-  "description": "Professional LoRA training environment with WD14 Tagger and one-click model management. Supports SD 1.5, SDXL, and anime-style training.",
-  "version": "1.0.0",
+  "description": "Professional LoRA training environment with WD14 Tagger and one-click model management. Supports SD 1.5, SDXL, Flux, SD3.5, and anime-style training.",
+  "version": "1.1.0",
   "category": "training",
-  "tags": ["lora", "kohya", "stable-diffusion", "wd14", "training", "sdxl"],
-
+  "tags": ["lora", "kohya", "stable-diffusion", "wd14", "training", "sdxl", "flux", "sd3.5"],
   "config": {
     "containerDiskInGb": 50,
     "volumeInGb": 80,
     "volumeMountPath": "/workspace",
     "ports": "3013/http,8888/http",
     "env": [
+      {
+        "key": "HF_TOKEN",
+        "input": {
+          "name": "Hugging Face Token",
+          "description": "FluxやSD3.5のダウンロードに必要なHugging FaceのAccess Token",
+          "default": "",
+          "type": "string"
+        }
+      },
       {
         "key": "ENABLE_JUPYTER",
         "input": {

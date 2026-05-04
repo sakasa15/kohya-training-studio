@@ -1,0 +1,43 @@
+{
+  "title": "Kohya_ss Training Studio",
+  "description": "Professional LoRA training environment with WD14 Tagger and one-click model management. Supports SD 1.5, SDXL, and anime-style training.",
+  "version": "1.0.0",
+  "category": "training",
+  "tags": ["lora", "kohya", "stable-diffusion", "wd14", "training", "sdxl"],
+
+  "config": {
+    "containerDiskInGb": 50,
+    "volumeInGb": 80,
+    "volumeMountPath": "/workspace",
+    "ports": "3013/http,8888/http",
+    "env": [
+      {
+        "key": "ENABLE_JUPYTER",
+        "input": {
+          "name": "Enable JupyterLab",
+          "description": "JupyterLabを有効にするか (1=有効, 0=無効)",
+          "default": "1",
+          "type": "string"
+        }
+      },
+      {
+        "key": "JUPYTER_PORT",
+        "input": {
+          "name": "JupyterLab Port",
+          "description": "JupyterLabのポート番号",
+          "default": "8888",
+          "type": "string"
+        }
+      },
+      {
+        "key": "KOHYA_PORT",
+        "input": {
+          "name": "Kohya_ss GUI Port",
+          "description": "Kohya_ss GUIのポート番号",
+          "default": "3013",
+          "type": "string"
+        }
+      }
+    ]
+  }
+}

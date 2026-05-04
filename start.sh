@@ -154,6 +154,44 @@ if [ ! -f "/workspace/Download_Models.ipynb" ]; then
     "---"
    ]
   },
+ {
+   "cell_type": "markdown",
+   "id": "token-header",
+   "metadata": {},
+   "source": [
+    "## 🔑 Hugging Face Token設定 (Flux・SD3.5を使う場合)\n",
+    "\n",
+    "FluxやSD3.5をダウンロードする場合は、以下のセルにHugging FaceのAccess Tokenを入力して実行してください。\n",
+    "SD1.5・SDXLのみ使用する場合はスキップできます。\n",
+    "\n",
+    "**トークンの取得方法:** https://huggingface.co/settings/tokens"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "set-hf-token",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import os\n",
+    "\n",
+    "# ここにHugging FaceのAccess Tokenを貼り付けてください\n",
+    "# Paste your Hugging Face Access Token here\n",
+    "HF_TOKEN = \"\"  # 例: \"hf_xxxxxxxxxxxxxxxxxxxxxxxx\"\n",
+    "\n",
+    "if HF_TOKEN:\n",
+    "    os.environ[\"HF_TOKEN\"] = HF_TOKEN\n",
+    "    print(\"✅ HF Token set successfully / HFトークンを設定しました\")\n",
+    "    print(\"   Flux and SD3.5 downloads are now enabled\")\n",
+    "    print(\"   Flux・SD3.5のダウンロードが可能になりました\")\n",
+    "else:\n",
+    "    print(\"⚠️  No token set - Flux/SD3.5 will not be available\")\n",
+    "    print(\"   トークン未設定 - Flux/SD3.5はダウンロードできません\")\n",
+    "    print(\"   SD1.5/SDXL/Anime models are still available\")\n",
+    "    print(\"   SD1.5/SDXL/Animeモデルは引き続き使用可能です\")"
+   ]
+  },
   {
    "cell_type": "markdown",
    "id": "list-header",

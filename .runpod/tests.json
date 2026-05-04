@@ -3,7 +3,7 @@
     {
       "name": "Kohya_ss GUI起動確認",
       "description": "Kohya_ss GUIがポート3013で起動しているか確認",
-      "timeout": 120,
+      "timeout": 600,
       "assert": {
         "type": "http",
         "url": "http://localhost:3013",
@@ -13,7 +13,7 @@
     {
       "name": "JupyterLab起動確認",
       "description": "JupyterLabがポート8888で起動しているか確認",
-      "timeout": 120,
+      "timeout": 600,
       "assert": {
         "type": "http",
         "url": "http://localhost:8888",

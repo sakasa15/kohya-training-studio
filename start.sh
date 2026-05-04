@@ -303,7 +303,66 @@ if [ ! -f "/workspace/Download_Models.ipynb" ]; then
    ]
   },
   {
+   {
    "cell_type": "markdown",
+   "id": "flux-header",
+   "metadata": {},
+   "source": [
+    "---\n",
+    "## 🚀 Flux・SD3.5 Models / 最新モデル\n",
+    "**⚠️ Requires Hugging Face Token / HFトークンが必要です**  \n",
+    "上の「🔑 Hugging Face Token設定」セルを先に実行してください"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "download-flux-dev",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# FLUX.1 Dev - Latest high quality model (23.8 GB, 24GB+ VRAM recommended)\n",
+    "# FLUX.1 Dev - 最新高品質モデル (23.8 GB, VRAM 24GB以上推奨)\n",
+    "!python /workspace/scripts/model_downloader.py download flux-dev"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "download-flux-schnell",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# FLUX.1 Schnell - Fast inference version (23.8 GB, 24GB+ VRAM recommended)\n",
+    "# FLUX.1 Schnell - 高速推論版 (23.8 GB, VRAM 24GB以上推奨)\n",
+    "!python /workspace/scripts/model_downloader.py download flux-schnell"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "download-sd35-large",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# SD 3.5 Large - Stability AI latest (16.0 GB, 16GB+ VRAM recommended)\n",
+    "# SD 3.5 Large - Stability AI最新モデル (16.0 GB, VRAM 16GB以上推奨)\n",
+    "!python /workspace/scripts/model_downloader.py download sd35-large"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "download-sd35-medium",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# SD 3.5 Medium - Balanced size and quality (8.9 GB, 10GB+ VRAM recommended)\n",
+    "# SD 3.5 Medium - サイズと品質のバランス型 (8.9 GB, VRAM 10GB以上推奨)\n",
+    "!python /workspace/scripts/model_downloader.py download sd35-medium"
+   ]
+  },
+  "cell_type": "markdown",
    "id": "custom-header",
    "metadata": {},
    "source": [

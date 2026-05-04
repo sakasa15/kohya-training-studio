@@ -114,17 +114,28 @@ Upload your training images to `/workspace/datasets/your_project/`
 
 ### Pre-configured Downloads
 
-| Model | Size | Description |
-|-------|------|-------------|
-| **SD 1.5** | 4.27 GB | Most popular for LoRA training |
-| **SD 1.5 EMA** | 4.27 GB | More stable training variant |
-| **SDXL Base** | 6.94 GB | High resolution training |
-| **SDXL Refiner** | 6.08 GB | Quality enhancement |
-| **Waifu Diffusion 1.5** | 2.0 GB | Anime/Manga specialized |
-| **Anything V5** | 2.13 GB | General purpose anime |
-| **Realistic Vision V5.1** | 2.13 GB | Photorealistic |
-| **VAE (SD 1.5)** | 335 MB | Better colors (optional) |
-| **VAE (SDXL)** | 335 MB | SDXL VAE (optional) |
+| Model | Size | VRAM | Description |
+|-------|------|------|-------------|
+| **SD 1.5** | 4.27 GB | 6GB+ | Most popular for LoRA training |
+| **SD 1.5 EMA** | 4.27 GB | 6GB+ | More stable training variant |
+| **SDXL Base** | 6.94 GB | 12GB+ | High resolution training |
+| **SDXL Refiner** | 6.08 GB | 12GB+ | Quality enhancement |
+| **Waifu Diffusion 1.5** | 2.0 GB | 6GB+ | Anime/Manga specialized |
+| **Anything V5** | 2.13 GB | 6GB+ | General purpose anime |
+| **Realistic Vision V5.1** | 2.13 GB | 6GB+ | Photorealistic |
+| **VAE (SD 1.5)** | 335 MB | - | Better colors (optional) |
+| **VAE (SDXL)** | 335 MB | - | SDXL VAE (optional) |
+
+### 🔑 Models Requiring Hugging Face Token
+
+| Model | Size | VRAM | Description |
+|-------|------|------|-------------|
+| **FLUX.1 Dev** | 23.8 GB | 24GB+ | Latest high quality model |
+| **FLUX.1 Schnell** | 23.8 GB | 24GB+ | Fast inference version |
+| **SD 3.5 Large** | 16.0 GB | 16GB+ | Stability AI latest |
+| **SD 3.5 Medium** | 8.9 GB | 10GB+ | Balanced size and quality |
+
+> ⚠️ These models require a [Hugging Face Access Token](https://huggingface.co/settings/tokens) and license agreement on each model page.
 
 ### Custom Models
 Download any model from Hugging Face, Civitai, or other sources using the custom URL feature in `Download_Models.ipynb`.
@@ -207,6 +218,7 @@ python tag_images_by_wd14_tagger.py \
 | `ENABLE_JUPYTER` | `1` | Enable JupyterLab (1=enabled, 0=disabled) |
 | `JUPYTER_PORT` | `8888` | JupyterLab port |
 | `KOHYA_PORT` | `3013` | Kohya_ss GUI port |
+| `HF_TOKEN` | `` | Hugging Face Access Token (required for Flux/SD3.5) |
 
 ---
 
@@ -287,7 +299,13 @@ Then reload Kohya_ss GUI in browser (Ctrl+Shift+R).
 
 ## 📝 Changelog
 
-### v30 (Current)
+### v1.1.0 (Latest)
+- 🚀 Added FLUX.1 Dev and Schnell support
+- 🚀 Added SD 3.5 Large and Medium support
+- 🔑 Added Hugging Face Token integration
+- 📓 Updated Download_Models.ipynb with Flux/SD3.5 cells
+
+### v30 (Previous)
 - ✨ Updated WD14 Tagger to ConvNextV2 (`wd-v1-4-convnextv2-tagger-v2`)
 - 🛡️ Network volume robustness improvements with retry logic
 - 🌍 Full bilingual support (English + Japanese)

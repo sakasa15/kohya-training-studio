@@ -776,6 +776,9 @@ if [ ! -f ".deps_installed" ]; then
 echo "📦 Installing WD14 Tagger dependencies..."
 pip install onnxruntime 2>&1 | grep -v "Not uninstalling" || true
 
+echo "📦 Fixing huggingface-hub version..."
+pip install "huggingface-hub>=0.23.2,<1.0" --force-reinstall 2>&1 || true
+
 touch .deps_installed
 echo "✅ Dependencies installed!"
 else

@@ -362,7 +362,7 @@ if [ ! -f "/workspace/Download_Models.ipynb" ]; then
    ]
   },
   {
-  "cell_type": "markdown",
+   "cell_type": "markdown",
    "id": "custom-header",
    "metadata": {},
    "source": [

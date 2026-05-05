@@ -31,7 +31,7 @@ RUN pip3 install --no-cache-dir \
     tqdm
 
 # kohya_ss をクローン（サブモジュール含む）
-RUN git clone https://github.com/bmaltais/kohya_ss.git /opt/kohya_ss && \
+RUN git clone --depth 1 --branch v25.0.3 https://github.com/bmaltais/kohya_ss.git /opt/kohya_ss && \
     cd /opt/kohya_ss && \
     git submodule update --init --recursive
 

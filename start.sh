@@ -756,7 +756,7 @@ if [ ! -f ".deps_installed" ]; then
     pip install --upgrade --ignore-installed \
         typing-extensions \
         packaging \
-        huggingface-hub \
+        "huggingface-hub>=0.23.2,<1.0" \
         filelock \
         requests \
         tqdm 2>&1 | grep -v "Not uninstalling" || true

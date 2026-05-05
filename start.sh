@@ -784,6 +784,8 @@ echo "✅ Dependencies installed!"
 else
 echo "✅ Dependencies already installed, skipping..."
 fi
+echo "📦 Fixing huggingface-hub version..."
+pip install "huggingface-hub>=0.23.2,<1.0" --force-reinstall 2>&1 || true
 # --- JupyterLab 起動 ---
 if [ "$ENABLE_JUPYTER" = "1" ]; then
 echo "Starting JupyterLab on port $JUPYTER_PORT..."

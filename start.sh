@@ -303,7 +303,6 @@ if [ ! -f "/workspace/Download_Models.ipynb" ]; then
    ]
   },
   {
-   {
    "cell_type": "markdown",
    "id": "flux-header",
    "metadata": {},
@@ -362,6 +361,7 @@ if [ ! -f "/workspace/Download_Models.ipynb" ]; then
     "!python /workspace/scripts/model_downloader.py download sd35-medium"
    ]
   },
+  {
   "cell_type": "markdown",
    "id": "custom-header",
    "metadata": {},

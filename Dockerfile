@@ -4,7 +4,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 ENV DEBIAN_FRONTEND=noninteractive \
     PYTHONUNBUFFERED=1 \
     PIP_NO_CACHE_DIR=on \
-    TEMPLATE_VERSION=v21
+    TEMPLATE_VERSION=v40
 
 WORKDIR /
 
@@ -26,7 +26,7 @@ RUN pip3 install --no-cache-dir \
     jupyterlab \
     notebook \
     ipywidgets \
-    huggingface-hub \
+    "huggingface-hub>=0.23.2,<1.0" \
     requests \
     tqdm
 

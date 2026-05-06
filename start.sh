@@ -247,64 +247,6 @@ if [ ! -f "/workspace/Download_Models.ipynb" ]; then
   },
   {
    "cell_type": "markdown",
-   "id": "recommended-header",
-   "metadata": {},
-   "source": [
-    "---\n",
-    "## ⭐ Recommended Models / 推奨モデル\n",
-    "**For quality improvement and specialized use / 品質向上・特化用**"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "download-vae",
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "# VAE for SD 1.5 - Better colors (Optional, 335 MB)\n",
-    "# SD 1.5用 VAE - 色味が鮮やかに（オプション・335 MB）\n",
-    "!python /workspace/scripts/model_downloader.py download vae-mse"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "download-wd15",
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "# Waifu Diffusion 1.5 Beta 3 - Anime/Manga specialized (2.0 GB)\n",
-    "# Waifu Diffusion 1.5 Beta 3 - Anime/Manga特化 (2.0 GB)\n",
-    "!python /workspace/scripts/model_downloader.py download wd15-beta3"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "download-anything",
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "# Anything V5 - General purpose anime model (2.13 GB)\n",
-    "# Anything V5 - 汎用Animeモデル (2.13 GB)\n",
-    "!python /workspace/scripts/model_downloader.py download anythingv5"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "download-realistic",
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "# Realistic Vision V5.1 - Photorealistic (2.13 GB)\n",
-    "# Realistic Vision V5.1 - 写実的 (2.13 GB)\n",
-    "!python /workspace/scripts/model_downloader.py download realisticvision"
-   ]
-  },
-  {
-   "cell_type": "markdown",
    "id": "flux-header",
    "metadata": {},
    "source": [
@@ -360,6 +302,64 @@ if [ ! -f "/workspace/Download_Models.ipynb" ]; then
     "# SD 3.5 Medium - Balanced size and quality (8.9 GB, 10GB+ VRAM recommended)\n",
     "# SD 3.5 Medium - サイズと品質のバランス型 (8.9 GB, VRAM 10GB以上推奨)\n",
     "!python /workspace/scripts/model_downloader.py download sd35-medium"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "recommended-header",
+   "metadata": {},
+   "source": [
+    "---\n",
+    "## ⭐ Recommended Models / 推奨モデル\n",
+    "**For quality improvement and specialized use / 品質向上・特化用**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "download-vae",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# VAE for SD 1.5 - Better colors (Optional, 335 MB)\n",
+    "# SD 1.5用 VAE - 色味が鮮やかに（オプション・335 MB）\n",
+    "!python /workspace/scripts/model_downloader.py download vae-mse"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "download-wd15",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Waifu Diffusion 1.5 Beta 3 - Anime/Manga specialized (2.0 GB)\n",
+    "# Waifu Diffusion 1.5 Beta 3 - Anime/Manga特化 (2.0 GB)\n",
+    "!python /workspace/scripts/model_downloader.py download wd15-beta3"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "download-anything",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Anything V5 - General purpose anime model (2.13 GB)\n",
+    "# Anything V5 - 汎用Animeモデル (2.13 GB)\n",
+    "!python /workspace/scripts/model_downloader.py download anythingv5"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "download-realistic",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Realistic Vision V5.1 - Photorealistic (2.13 GB)\n",
+    "# Realistic Vision V5.1 - 写実的 (2.13 GB)\n",
+    "!python /workspace/scripts/model_downloader.py download realisticvision"
    ]
   },
   {

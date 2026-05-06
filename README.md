@@ -58,7 +58,7 @@ sakasa15/kohya-runpod:v30
 **Recommended Specifications:**
 - **GPU:** 12GB+ VRAM (24GB+ recommended for Flux)
 - **Container Disk:** 50GB
-- **Network Volume:** 80GB+ mounted to `/workspace` (200GB+ recommended for Flux/SD3.5)
+- **Network Volume:** 150GB+ mounted to `/workspace` (200GB+ recommended for Flux/SD3.5)
 
 **Ports:**
 - `3013` - Kohya_ss GUI
@@ -408,7 +408,7 @@ sakasa15/kohya-runpod:v30
 **推奨スペック:**
 - **GPU:** 12GB以上 VRAM（Fluxには24GB以上推奨）
 - **Container Disk:** 50GB
-- **Network Volume:** 80GB以上、`/workspace`にマウント（Flux/SD3.5には200GB以上推奨）
+- **Network Volume:** 150GB以上、`/workspace`にマウント（Flux/SD3.5には200GB以上推奨）
 
 **ポート:**
 - `3013` - Kohya_ss GUI

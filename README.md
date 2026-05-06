@@ -465,13 +465,99 @@ Podが起動すると、2つのURLが表示されます:
 
 ---
 
+## 📦 利用可能なモデル
+
+### 事前設定済みダウンロード
+
+| モデル | サイズ | VRAM | 説明 |
+|--------|--------|------|------|
+| **SD 1.5** | 4.27 GB | 6GB以上 | LoRA学習の定番 |
+| **SD 1.5 EMA** | 4.27 GB | 6GB以上 | より安定した学習 |
+| **SDXL Base** | 6.94 GB | 12GB以上 | 高解像度学習用 |
+| **SDXL Refiner** | 6.08 GB | 12GB以上 | 高品質化用 |
+| **Waifu Diffusion 1.5** | 2.0 GB | 6GB以上 | Anime/Manga特化 |
+| **Anything V5** | 2.13 GB | 6GB以上 | 汎用Animeモデル |
+| **Realistic Vision V5.1** | 2.13 GB | 6GB以上 | 写実的な画像生成 |
+| **VAE (SD 1.5)** | 335 MB | - | 色味向上（オプション） |
+| **VAE (SDXL)** | 335 MB | - | SDXL用VAE（オプション） |
+
+### 🔑 Hugging Face Token が必要なモデル
+
+| モデル | サイズ | VRAM | 説明 |
+|--------|--------|------|------|
+| **FLUX.1 Dev** | 23.8 GB | 24GB以上 | 最新高品質モデル |
+| **FLUX.1 Schnell** | 23.8 GB | 24GB以上 | 高速推論版 |
+| **SD 3.5 Large** | 16.0 GB | 16GB以上 | Stability AI最新モデル |
+| **SD 3.5 Medium** | 8.9 GB | 10GB以上 | サイズと品質のバランス型 |
+
+> ⚠️ これらのモデルは [Hugging Face Access Token](https://huggingface.co/settings/tokens) と各モデルページでのライセンス同意が必要です。
+
+---
+
+## 🐛 トラブルシューティング
+
+### Kohya_ss GUIでモデルが表示されない
+
+**症状:** ドロップダウンでモデルを選択できない
+
+**解決策:**
+```bash
+cd /workspace/kohya_ss
+rm -rf models
+ln -s /workspace/models models
+```
+その後Podを再起動してください。
+
+### WD14タガーボタンがグレーアウトしている
+
+**症状:** Kohya GUIの「Caption images」ボタンがクリックできない
+
+**解決策:**
+```bash
+cd /workspace/kohya_ss
+source venv/bin/activate
+pip install onnxruntime
+```
+その後ブラウザでKohya_ss GUIをリロード（Ctrl+Shift+R）。
+
+### 起動が遅い
+
+**症状:** Podの起動に2分以上かかる
+
+**考えられる原因:**
+- ネットワークボリュームが遅い（1〜2分待つ）
+- 初回の依存関係インストール（正常）
+
+**解決策:** 起動完了まで待ってください。2回目以降の起動は速くなります。
+
+### JupyterLabのカーネルの問題
+
+**症状:** セルを実行できない、または「No Kernel」エラー
+
+**解決策:**
+1. JupyterLabで **Kernel** → **Restart Kernel**
+2. または **Kernel** → **Change Kernel** → **Python 3**
+
+---
+
 ## 📝 変更履歴
 
-### v30（現在）
-- ✨ WD14タガーをConvNextV2に更新（`wd-v1-4-convnextv2-tagger-v2`）
-- 🛡️ リトライロジックによるネットワークボリュームの堅牢性向上
-- 🌍 完全なバイリンガル対応（英語+日本語）
-- 📓 スマートなノートブック管理（ダウンロード履歴保持、WD14リセット）
+### v1.1.0（最新）
+- 🚀 FLUX.1 DevとSchnellのサポートを追加
+- 🚀 SD 3.5 LargeとMediumのサポートを追加
+- 🔑 Hugging Face Token連携を追加
+- 📓 Flux/SD3.5のダウンロードセルを追加
+
+### v40
+- 🔧 GitHub Actionsによる自動ビルドを導入
+- 🔧 huggingface-hubのバージョン問題を修正
+- 📌 kohya_ss v25.0.3に固定
+
+### v30（以前）
+- ✨ WD14タガーをConvNextV2に更新
+- 🛡️ ネットワークボリュームの堅牢性向上
+- 🌍 完全なバイリンガル対応
+- 📓 スマートなノートブック管理
 - 🔧 自動エラー復旧
 
 ---

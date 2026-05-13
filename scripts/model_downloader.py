@@ -135,8 +135,8 @@ AVAILABLE_MODELS = {
     # 🎨 Specialized Models / 特化モデル
     # ========================================
     "wd15-beta3": {
-        "url": "https://huggingface.co/SmilingWolf/wd-v1-5-beta3/resolve/main/model.safetensors",
-        "filename": "wd-v1-5-beta3.safetensors",
+        "url": "https://huggingface.co/SmilingWolf/wd-v1-4-convnextv2-tagger-v2/resolve/main/model.safetensors",
+        "filename": "wd-v1-4-convnextv2-tagger-v2.safetensors",
         "dest": "Stable-diffusion",
         "size": "2.0 GB",
         "priority": "MEDIUM",
@@ -155,7 +155,7 @@ AVAILABLE_MODELS = {
         "description_ja": "Realistic Vision V5.1 - 写実的な画像生成"
     },
     "anythingv5": {
-        "url": "https://huggingface.co/stablediffusionapi/anything-v5/resolve/main/anythingV5_v5PrtRE.safetensors",
+        "url": "https://huggingface.co/genai-archive/anything-v5/resolve/main/anything-v5.safetensors",
         "filename": "anythingv5.safetensors",
         "dest": "Stable-diffusion",
         "size": "2.13 GB",

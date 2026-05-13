@@ -135,14 +135,14 @@ AVAILABLE_MODELS = {
     # 🎨 Specialized Models / 特化モデル
     # ========================================
     "wd15-beta3": {
-        "url": "https://huggingface.co/SmilingWolf/wd-v1-4-convnextv2-tagger-v2/resolve/main/model.safetensors",
-        "filename": "wd-v1-4-convnextv2-tagger-v2.safetensors",
+        "url": "https://huggingface.co/SmilingWolf/wd-v1-4-convnextv2-tagger-v2/resolve/main/model.onnx",
+        "filename": "wd-v1-4-convnextv2-tagger-v2.onnx",
         "dest": "Stable-diffusion",
-        "size": "2.0 GB",
+        "size": "388 MB",
         "priority": "MEDIUM",
         "requires_token": False,
-        "description": "Waifu Diffusion 1.5 Beta 3 - Anime/Manga specialized",
-        "description_ja": "Waifu Diffusion 1.5 Beta 3 - Anime/Manga特化"
+        "description": "WD14 ConvNextV2 Tagger - Anime/Manga auto-tagging (ONNX)",
+        "description_ja": "WD14 ConvNextV2タガー - Anime/Manga自動タグ付け (ONNX)"
     },
     "realisticvision": {
         "url": "https://huggingface.co/SG161222/Realistic_Vision_V5.1_noVAE/resolve/main/Realistic_Vision_V5.1_fp16-no-ema.safetensors",

@@ -116,11 +116,9 @@ else
 fi
 
 # --- モデルダウンローダーとノートブックの準備 ---
-if [ ! -f "/workspace/scripts/model_downloader.py" ]; then
-    echo "📥 Copying model downloader to /workspace/scripts..."
-    mkdir -p /workspace/scripts
-    cp /opt/scripts/model_downloader.py /workspace/scripts/
-fi
+echo "📥 Copying model downloader to /workspace/scripts..."
+mkdir -p /workspace/scripts
+cp /opt/scripts/model_downloader.py /workspace/scripts/
 
 # Download_Models.ipynb - 初回のみ作成（ダウンロード履歴を保持）
 if [ ! -f "/workspace/Download_Models.ipynb" ]; then

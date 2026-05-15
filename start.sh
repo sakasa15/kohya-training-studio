@@ -1,5 +1,4 @@
 #!/bin/bash
-# v40c
 set -e
 
 echo "=========================================="
@@ -116,9 +115,11 @@ else
 fi
 
 # --- モデルダウンローダーとノートブックの準備 ---
-echo "📥 Copying model downloader to /workspace/scripts..."
-mkdir -p /workspace/scripts
-cp /opt/scripts/model_downloader.py /workspace/scripts/
+if [ ! -f "/workspace/scripts/model_downloader.py" ]; then
+    echo "📥 Copying model downloader to /workspace/scripts..."
+    mkdir -p /workspace/scripts
+    cp /opt/scripts/model_downloader.py /workspace/scripts/
+fi
 
 # Download_Models.ipynb - 初回のみ作成（ダウンロード履歴を保持）
 if [ ! -f "/workspace/Download_Models.ipynb" ]; then
@@ -151,44 +152,6 @@ if [ ! -f "/workspace/Download_Models.ipynb" ]; then
     "   または上部の ▶ ボタンをクリック\n",
     "\n",
     "---"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "id": "token-header",
-   "metadata": {},
-   "source": [
-    "## 🔑 Hugging Face Token設定 (Flux・SD3.5を使う場合)\n",
-    "\n",
-    "FluxやSD3.5をダウンロードする場合は、以下のセルにHugging FaceのAccess Tokenを入力して実行してください。\n",
-    "SD1.5・SDXLのみ使用する場合はスキップできます。\n",
-    "\n",
-    "**トークンの取得方法:** https://huggingface.co/settings/tokens"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "set-hf-token",
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "import os\n",
-    "\n",
-    "# ここにHugging FaceのAccess Tokenを貼り付けてください\n",
-    "# Paste your Hugging Face Access Token here\n",
-    "HF_TOKEN = \"\"  # 例: \"hf_xxxxxxxxxxxxxxxxxxxxxxxx\"\n",
-    "\n",
-    "if HF_TOKEN:\n",
-    "    os.environ[\"HF_TOKEN\"] = HF_TOKEN\n",
-    "    print(\"✅ HF Token set successfully / HFトークンを設定しました\")\n",
-    "    print(\"   Flux and SD3.5 downloads are now enabled\")\n",
-    "    print(\"   Flux・SD3.5のダウンロードが可能になりました\")\n",
-    "else:\n",
-    "    print(\"⚠️  No token set - Flux/SD3.5 will not be available\")\n",
-    "    print(\"   トークン未設定 - Flux/SD3.5はダウンロードできません\")\n",
-    "    print(\"   SD1.5/SDXL/Anime models are still available\")\n",
-    "    print(\"   SD1.5/SDXL/Animeモデルは引き続き使用可能です\")"
    ]
   },
   {
@@ -241,65 +204,6 @@ if [ ! -f "/workspace/Download_Models.ipynb" ]; then
     "# SDXL Base 1.0 - High resolution training (6.94 GB)\n",
     "# SDXL Base 1.0 - 高解像度学習用 (6.94 GB)\n",
     "!python /workspace/scripts/model_downloader.py download sdxl-base"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "id": "flux-header",
-   "metadata": {},
-   "source": [
-    "---\n",
-    "## 🚀 Flux・SD3.5 Models / 最新モデル\n",
-    "**⚠️ Requires Hugging Face Token / HFトークンが必要です**  \n",
-    "上の「🔑 Hugging Face Token設定」セルを先に実行してください"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "download-flux-dev",
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "# FLUX.1 Dev - Latest high quality model (23.8 GB, 24GB+ VRAM recommended)\n",
-    "# FLUX.1 Dev - 最新高品質モデル (23.8 GB, VRAM 24GB以上推奨)\n",
-    "!python /workspace/scripts/model_downloader.py download flux-dev"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "download-flux-schnell",
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "# FLUX.1 Schnell - Fast inference version (23.8 GB, 24GB+ VRAM recommended)\n",
-    "# FLUX.1 Schnell - 高速推論版 (23.8 GB, VRAM 24GB以上推奨)\n",
-    "!python /workspace/scripts/model_downloader.py download flux-schnell"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "download-sd35-large",
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "# SD 3.5 Large - Stability AI latest (16.0 GB, 16GB+ VRAM recommended)\n",
-    "# SD 3.5 Large - Stability AI最新モデル (16.0 GB, VRAM 16GB以上推奨)\n",
-    "!python /workspace/scripts/model_downloader.py download sd35-large"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "download-sd35-medium",
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "# SD 3.5 Medium - Balanced size and quality (8.9 GB, 10GB+ VRAM recommended)\n",
-    "# SD 3.5 Medium - サイズと品質のバランス型 (8.9 GB, VRAM 10GB以上推奨)\n",
-    "!python /workspace/scripts/model_downloader.py download sd35-medium"
    ]
   },
   {
@@ -754,7 +658,7 @@ if [ ! -f ".deps_installed" ]; then
     pip install --upgrade --ignore-installed \
         typing-extensions \
         packaging \
-        "huggingface-hub>=0.23.2,<1.0" \
+        huggingface-hub \
         filelock \
         requests \
         tqdm 2>&1 | grep -v "Not uninstalling" || true
@@ -774,16 +678,11 @@ if [ ! -f ".deps_installed" ]; then
 echo "📦 Installing WD14 Tagger dependencies..."
 pip install onnxruntime 2>&1 | grep -v "Not uninstalling" || true
 
-echo "📦 Fixing huggingface-hub version..."
-pip install "huggingface-hub>=0.23.2,<1.0" --force-reinstall 2>&1 || true
-
 touch .deps_installed
 echo "✅ Dependencies installed!"
 else
 echo "✅ Dependencies already installed, skipping..."
 fi
-echo "📦 Fixing huggingface-hub version..."
-pip install "huggingface-hub>=0.23.2,<1.0" --force-reinstall 2>&1 || true
 # --- JupyterLab 起動 ---
 if [ "$ENABLE_JUPYTER" = "1" ]; then
 echo "Starting JupyterLab on port $JUPYTER_PORT..."
